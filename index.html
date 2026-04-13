@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pray the Psalms</title>
+  <meta name="description" content="Pray through the Psalms verse by verse using Donald Whitney's method from Praying the Bible.">
+  <meta name="theme-color" content="#FFFDF5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen active">
+      <div class="screen-content">
+        <header class="home-header">
+          <div class="logo-mark" aria-label="Pray the Psalms">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="18" cy="18" r="10" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+              <circle cx="18" cy="18" r="4" stroke="currentColor" stroke-width="0.5" opacity="0.15"/>
+              <line x1="18" y1="2" x2="18" y2="34" stroke="currentColor" stroke-width="0.5" opacity="0.1"/>
+              <line x1="2" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="0.5" opacity="0.1"/>
+            </svg>
+          </div>
+          <button class="icon-btn" onclick="showScreen('settings')" aria-label="Settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </header>
+
+        <div class="home-title">
+          <h1>Pray the<br>Psalms</h1>
+          <p class="greeting" id="greeting"></p>
+        </div>
+
+        <div class="section-header">
+          <div class="section-marker"></div>
+          <span class="section-label">TODAY'S PSALMS</span>
+          <span class="section-date" id="today-date"></span>
+        </div>
+        <p class="section-hint" id="day-hint"></p>
+
+        <div id="todays-psalms" class="psalm-cards"></div>
+
+        <div class="actions">
+          <button class="action-btn" onclick="openRandomPsalm()">
+            <div class="action-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+            </div>
+            <div class="action-text">
+              <span class="action-label">Random Psalm</span>
+              <span class="action-sub">Let the Spirit lead</span>
+            </div>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <button class="action-btn" onclick="showScreen('browse')">
+            <div class="action-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <div class="action-text">
+              <span class="action-label">Browse All Psalms</span>
+              <span class="action-sub">All 150 psalms</span>
+            </div>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="home-quote">
+          <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" opacity="0.2"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+          <p class="quote-text">"Go through the passage line by line, talking to God about whatever comes to mind as you read the text."</p>
+          <p class="quote-attr">— Donald S. Whitney</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prayer Screen -->
+    <div id="prayer-screen" class="screen">
+      <div class="screen-content">
+        <header class="prayer-header">
+          <button class="icon-btn" onclick="showScreen('home')" aria-label="Back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="prayer-title-block">
+            <h2 id="prayer-psalm-title">Psalm 1</h2>
+            <p id="prayer-psalm-subtitle" class="prayer-subtitle"></p>
+          </div>
+          <button class="icon-btn" id="toggle-view-btn" onclick="toggleView()" aria-label="Toggle view">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </header>
+
+        <div class="theme-badge" id="prayer-theme-badge"></div>
+
+        <!-- Single verse view -->
+        <div id="single-verse-view" class="verse-view active">
+          <div class="verse-meta">
+            <span id="verse-counter">Verse 1 of 6</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="verse-progress"></div>
+          </div>
+          <div class="verse-display" id="verse-display">
+            <div class="verse-number" id="verse-big-number">1</div>
+            <p class="verse-text" id="verse-text"></p>
+            <div class="prayer-prompt">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Pause. What comes to mind? Talk to God about it.</span>
+            </div>
+          </div>
+          <div class="verse-nav">
+            <button class="nav-btn prev-btn" id="prev-btn" onclick="prevVerse()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              Previous
+            </button>
+            <button class="nav-btn next-btn" id="next-btn" onclick="nextVerse()">
+              <span id="next-btn-text">Next Verse</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- All verses view -->
+        <div id="all-verses-view" class="verse-view">
+          <div id="all-verses-list" class="all-verses-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Browse Screen -->
+    <div id="browse-screen" class="screen">
+      <div class="screen-content">
+        <header class="browse-header">
+          <button class="icon-btn" onclick="showScreen('home')" aria-label="Back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <h2>All Psalms</h2>
+          <div style="width:40px"></div>
+        </header>
+        <div class="search-bar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" id="search-input" placeholder="Search psalms..." oninput="filterPsalms()">
+        </div>
+        <div class="filter-chips" id="filter-chips"></div>
+        <p class="results-count" id="results-count"></p>
+        <div id="browse-list" class="browse-list"></div>
+      </div>
+    </div>
+
+    <!-- Settings Screen -->
+    <div id="settings-screen" class="screen">
+      <div class="screen-content">
+        <header class="browse-header">
+          <button class="icon-btn" onclick="showScreen('home')" aria-label="Back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <h2>Settings</h2>
+          <div style="width:40px"></div>
+        </header>
+
+        <div class="settings-section">
+          <span class="section-label">TRANSLATION</span>
+          <div id="translation-options" class="theme-options"></div>
+        </div>
+
+        <div class="settings-section">
+          <span class="section-label">THEME</span>
+          <div id="theme-options" class="theme-options"></div>
+        </div>
+
+        <div class="settings-section">
+          <span class="section-label">THE METHOD</span>
+          <div class="method-card">
+            <div class="method-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <div>
+                <h3>Praying the Bible</h3>
+                <p class="method-author">by Donald S. Whitney</p>
+              </div>
+            </div>
+            <div class="method-body">
+              <p>The method is simple: go through a psalm line by line, talking to God about whatever comes to mind as you read each verse.</p>
+              <p>Each day, you have 5 psalms to choose from based on the day of the month. Scan them quickly and pick the one that best matches where your heart is today.</p>
+              <p>The first psalm matches today's date. Each additional psalm adds 30:</p>
+              <ul>
+                <li>Day 1 → Psalms 1, 31, 61, 91, 121</li>
+                <li>Day 15 → Psalms 15, 45, 75, 105, 135</li>
+              </ul>
+              <p>Read each verse slowly. Pause. Pray about whatever the verse brings to mind. When nothing more comes, move to the next verse.</p>
+              <p style="font-style:italic; opacity:0.7">You'll never pray the same prayer twice.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <span class="section-label">PSALMS OF THE DAY CHART</span>
+          <div class="chart-card" id="psalms-chart"></div>
+        </div>
+
+        <div class="settings-footer">
+          <p class="footer-title">Pray the Psalms</p>
+          <p class="footer-sub">Built with love for the Word</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
