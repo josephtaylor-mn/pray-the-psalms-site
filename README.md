@@ -1,6 +1,6 @@
 # Pray the Psalms — Web
 
-A beautiful web app for praying through the Psalms verse by verse, based on Donald S. Whitney's method from *Praying the Bible*.
+A beautiful web app for praying through the Psalms verse by verse, using a simple Scripture-led approach to daily prayer.
 
 **Live site:** https://josephtaylor-mn.github.io/pray-the-psalms-site/
 

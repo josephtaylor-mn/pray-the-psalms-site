@@ -57,7 +57,7 @@ function loadTranslation(translationId) {
   }
 }
 
-// --- Whitney Method ---
+// --- Psalms of the Day ---
 function getPsalmsOfTheDay(day) {
   if (day === 31) return [119];
   const psalms = [];
