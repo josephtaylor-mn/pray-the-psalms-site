@@ -56,73 +56,89 @@
 </head>
 <body>
     <h1>Privacy Policy — Pray the Psalms</h1>
-    <p><strong>Effective Date:</strong> April 13, 2026</p>
+    <p><strong>Effective Date:</strong> September 2, 2026 (revised)</p>
     <p>---</p>
     <h2>Overview</h2>
-    <p>Pray the Psalms ("the App") is a free prayer application for iOS and Android. This policy describes what data the App collects (none), how it operates, and your rights as a user.</p>
+    <p>Pray the Psalms ("the App") is a free prayer application for iOS, Android, and the web. This policy describes what data the App collects, how it operates, and your rights as a user.</p>
     <p>---</p>
-    <h2>1. No Data Collection</h2>
-    <p>Pray the Psalms does not collect, store, transmit, or process any personal information. Specifically:</p>
+    <h2>1. What We Collect</h2>
+    <p>Pray the Psalms can be used without an account. If you choose to create an account, we collect only the information needed to authenticate you and synchronize your prayer activity. Specifically:</p>
     <ul>
-    <li>**No personal data** of any kind is collected.</li>
-    <li>**No user accounts** are created or required.</li>
-    <li>**No analytics or usage tracking** of any kind is performed.</li>
-    <li>**No crash reporting tools** or third-party SDKs are embedded in the App.</li>
-    <li>**No advertising networks** are present.</li>
-    <li>**No in-app purchases** are offered.</li>
-    <li>**No internet connection** is required or used at any time after the App is downloaded.</li>
+    <li><strong>Optional account information</strong> — your email address, name when supplied by your sign-in provider, and a generated account identifier.</li>
+    <li><strong>Optional synchronized activity</strong> — favorite psalms or verses, aggregate prayer progress, and the last psalm and verse reached.</li>
+    <li><strong>No advertising networks</strong> are present.</li>
+    <li><strong>No in-app purchases</strong> are offered.</li>
+    <li><strong>No crash reporting tools</strong> are embedded.</li>
+    <li><strong>Anonymous analytics</strong> are collected as described in Section 3.</li>
     </ul>
     <p>---</p>
-    <h2>2. Local Storage Only</h2>
-    <p>The App stores a single preference on your device: your chosen <strong>visual theme</strong> (Dawn, Forest, Ocean, Twilight, or Night). This preference:</p>
+    <h2>2. Local Storage and Optional Sync</h2>
+    <p>The App stores your visual theme, translation choice, favorites, and prayer progress on your device. These features work without an account.</p>
     <ul>
     <li>Is saved locally using your device's standard storage.</li>
-    <li>Never leaves your device.</li>
-    <li>Is never transmitted to any server, third party, or service.</li>
+    <li>Favorites and prayer progress are sent to Supabase only if you choose to sign in.</li>
     <li>Can be changed at any time within the App.</li>
     <li>Is deleted when you uninstall the App.</li>
     </ul>
-    <p>No other data is written to your device beyond the App's own files installed during download.</p>
+    <p>When signed in, Supabase stores an account record and a copy of your favorites and prayer progress so they can be restored on another device. Each signed-in user can access only their own synchronized records.</p>
     <p>---</p>
-    <h2>3. No Internet Communication</h2>
-    <p>Pray the Psalms operates entirely offline. The App makes no network requests of any kind. No data is sent to or received from any external server, API, or service after the initial download from the App Store or Google Play.</p>
-    <p>---</p>
-    <h2>4. No Third-Party Services</h2>
-    <p>Pray the Psalms does not integrate with or share data with any third-party service, including but not limited to:</p>
+    <h2>3. Anonymous Analytics</h2>
+    <p>To understand how people use the App (e.g., how many people open it each day, which psalms are most prayed, which translations are popular, what percentage of sessions reach the closing "Amen"), we use <strong>PostHog</strong> — a privacy-friendly product analytics service. PostHog stores its data on servers in the United States.</p>
+    <p>The App sends only <strong>anonymous, aggregate usage events</strong> such as:</p>
     <ul>
-    <li>Analytics platforms (e.g., Firebase, Mixpanel, Amplitude)</li>
+    <li>Which psalm was opened, from which source (Today's Psalms, Browse, Random), in which translation.</li>
+    <li>Whether a verse was advanced and whether a psalm session reached "Amen."</li>
+    <li>Which translation or visual theme was selected.</li>
+    <li>The <strong>length</strong> of a search query and the number of results (the query text itself is never sent).</li>
+    <li>The screen being viewed.</li>
+    </ul>
+    <p>Each device is assigned a random identifier, stored locally (on the web, in your browser's localStorage — <strong>no cookies are set</strong>). If you sign in, that analytics identifier is associated with your generated account identifier so activity can be understood across sessions. PostHog derives broad geographic information (country / region) from your IP address at the time of the request; the App does not store your IP address. Analytics events do not include your name, email address, precise location, verse text, search-query text, or contact data.</p>
+    <p>If you wish to opt out, you can block analytics traffic at the network level (e.g., a content blocker) or, on the web, disable JavaScript for this site.</p>
+    <h2>4. Network Usage</h2>
+    <p>The App is designed to work fully offline for prayer. Bible translations bundled with the App — the <strong>World English Bible (WEB)</strong> and <strong>King James Version (KJV)</strong> (both public domain), and the <strong>Literal Standard Version (LSV)</strong> (© Covenant Press, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>) — are included in the download and require no network connection to read.</p>
+    <p>The <strong>in-app feedback form</strong>, when you voluntarily submit it, posts your written feedback to a server operated by the developer, which then files a GitHub issue. No personal information is attached to that request beyond what you choose to write.</p>
+    <p>Analytics (Section 3), voluntary feedback, optional authentication, and optional synchronization are the only routine network uses. No Bible text is fetched from the internet at runtime.</p>
+    <p>---</p>
+    <h2>5. Third-Party Services</h2>
+    <p>Pray the Psalms does not integrate with advertising networks or crash reporting services. Specifically absent:</p>
+    <ul>
     <li>Advertising networks (e.g., Google AdMob, Facebook Audience Network)</li>
     <li>Crash reporting services (e.g., Crashlytics, Sentry)</li>
-    <li>Cloud storage or sync services</li>
-    <li>Social media platforms</li>
+    </ul>
+    <p>The third-party services the App contacts are:</p>
+    <ul>
+    <li><strong>PostHog</strong> — anonymous product analytics. See Section 3.</li>
+    <li><strong>Supabase</strong> — optional account authentication and encrypted cloud synchronization of favorites and prayer progress.</li>
+    <li><strong>Apple and Google</strong> — optional sign-in providers; their handling of login information is governed by their respective privacy policies.</li>
+    <li><strong>The developer's feedback endpoint</strong> — used only when you voluntarily submit the in-app feedback form.</li>
     </ul>
     <p>---</p>
-    <h2>5. Children's Privacy</h2>
-    <p>Because Pray the Psalms collects no data from anyone, it is safe for users of all ages, including children under 13 (COPPA) and children under 16 (GDPR). No personal information from children — or anyone — is ever collected.</p>
+    <h2>6. Children's Privacy</h2>
+    <p>The App is intended for a general audience and does not knowingly collect personal information from children. An account is never required. A parent or guardian who believes a child provided account information may contact us to request deletion.</p>
     <p>---</p>
-    <h2>6. Data Security</h2>
-    <p>Since no personal data is collected or transmitted, there is no personal data to secure externally. All locally stored preferences (your chosen theme) remain on your device and are subject to your device's own security protections (e.g., device passcode, encryption).</p>
+    <h2>7. Data Security</h2>
+    <p>All network traffic is transmitted over HTTPS. Supabase applies row-level security so authenticated users can access only their own synchronized records. Locally stored data remains subject to your device's security protections.</p>
     <p>---</p>
-    <h2>7. Your Rights</h2>
-    <p>Because no personal data is collected, there is no personal data to access, correct, export, or delete. If you wish to remove all App data, simply uninstall the App from your device.</p>
-    <p>For users in the European Union (GDPR) and California (CCPA): we have no personal data on file, and therefore there is nothing to fulfill under data subject access or deletion requests. You are welcome to contact us to confirm this.</p>
+    <h2>8. Your Rights</h2>
+    <p>You may sign out at any time. To request access to, correction of, export of, or deletion of optional account and synchronized data, contact us at the address below. If you wish to remove the device identifier used for analytics, clear your browser's site data (web) or uninstall the App (mobile).</p>
+    <p>These rights are available regardless of location and include rights provided by laws such as GDPR and CCPA where applicable.</p>
     <p>---</p>
-    <h2>8. App Store and Device Platform Data</h2>
+    <h2>9. App Store and Device Platform Data</h2>
     <p>When you download Pray the Psalms from the Apple App Store or Google Play, those platforms may collect information about the download according to their own privacy policies. That data is collected and controlled by Apple or Google, not by us. Please review:</p>
     <ul>
     <li>[Apple Privacy Policy](https://www.apple.com/legal/privacy/)</li>
     <li>[Google Privacy Policy](https://policies.google.com/privacy)</li>
     </ul>
     <p>---</p>
-    <h2>9. Changes to This Policy</h2>
-    <p>If the App ever changes in a way that affects data practices, this policy will be updated, and a new effective date will be posted. Given the App's design philosophy of collecting no data, such changes are not anticipated.</p>
+    <h2>10. Changes to This Policy</h2>
+    <p>If the App ever changes in a way that affects data practices, this policy will be updated, and a new effective date will be posted.</p>
     <p>---</p>
-    <h2>10. Contact</h2>
+    <h2>11. Contact</h2>
     <p>If you have any questions about this privacy policy, please contact:</p>
     <p><strong>Email:</strong> bogeypepsi@gmail.com</p>
     <p>We will respond as promptly as possible.</p>
     <p>---</p>
-    <p>*This privacy policy applies to the Pray the Psalms app on all platforms (iOS and Android).*</p>
-    <p>*Effective Date: April 13, 2026*</p>
+    <p>*This privacy policy applies to the Pray the Psalms app on all platforms (iOS, Android, and web).*</p>
+    <p>*Effective Date: September 2, 2026*</p>
 </body>
 </html>
